@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "priority": "dishes",
+    "dueDate": null,
+    "status": "pending",
+    "projectId": 1
+  },
+  {
+    "id": 2,
+    "priority": "clean up",
+    "dueDate": null,
+    "status": "in-progress",
+    "projectId": 1
+  }
+]
