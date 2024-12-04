@@ -17,7 +17,8 @@ namespace lesson3.DAL
         public DbSet<Tasks> Tasks { get; set; }
         public DbSet<Projects> Projects { get; set; }
         public DbSet<Users> Users { get; set; }
-        public virtual DbSet<Attachments> AttachmentsTasks { get; set; }
+        //public virtual DbSet<Attachments> AttachmentsTasks { get; set; }
+        public virtual DbSet<Logger> Logger { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Tasks>(entity =>
@@ -73,12 +74,12 @@ namespace lesson3.DAL
                 .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Attachments>(entity =>
-            {
-                entity.HasKey(e => e.AttachId);
+            //modelBuilder.Entity<Attachments>(entity =>
+            //{
+            //    entity.HasKey(e => e.AttachId);
 
 
-            });
+            //});
 
 
             OnModelCreatingPartial(modelBuilder);

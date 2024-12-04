@@ -3,11 +3,19 @@ using lesson1.DAL;
 using Microsoft.OpenApi.Models;
 using lesson3.DAL;
 using Microsoft.EntityFrameworkCore;
+using TasksApi.Services.Logger;
+using lesson1.Services.Logger;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<ITaskService, TasksServices>();
+
 builder.Services.AddScoped<ITaskDal, TaskDal>();
+
+builder.Services.AddScoped<ILoggerDal, LoggerDal>();
+
+builder.Services.AddScoped<ILoggerService, DBLoggerService>();
+
 
 //builder.Services.AddScoped<IProjectService, ProjectService>();
 //builder.Services.AddScoped<IProjectDal, ProjectDal>();

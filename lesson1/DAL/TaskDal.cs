@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using static System.Reflection.Metadata.BlobBuilder;
 using System;
+using TasksApi.Services.Logger;
 
 
 namespace lesson1.DAL
@@ -12,10 +13,12 @@ namespace lesson1.DAL
     {
 
         private readonly TasksDBContext _context;
+        private readonly ILoggerService _logger;
 
-        public TaskDal(TasksDBContext context)
+        public TaskDal(TasksDBContext context,ILoggerService logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public List<Tasks> GetTasks()
@@ -26,9 +29,10 @@ namespace lesson1.DAL
 
         public bool Add(Tasks tasks)
         {
-            Projects? project = _context.Projects.Find(tasks.ProjectId);
+            Projects? project = _context.Projects.Find(tasks.ProjectId); 
             Users? user = _context.Users.Find(tasks.UserId);
             if (project!=null && user!=null){
+                _logger.Log($"Create User start:{tasks.Priority}");
                 _context.Tasks.Add(tasks);
                 _context.SaveChanges();
                 return true;

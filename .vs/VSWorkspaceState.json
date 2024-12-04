@@ -4,8 +4,9 @@
     "\\lesson1",
     "\\lesson1\\controllers",
     "\\lesson1\\DAL",
-    "\\lesson1\\models"
+    "\\lesson1\\models",
+    "\\lesson1\\Properties"
   ],
-  "SelectedNode": "\\lesson1\\DAL\\TasksDBContext.cs",
+  "SelectedNode": "\\lesson1\\bin",
   "PreviewInSolutionExplorer": false
 }
